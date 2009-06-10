@@ -1,0 +1,5 @@
+<h1>Welcome</h1>
+
+We detect that you are <%= "not " unless session[:admin] %> an
+administrator!
+<%= link_to "Logout", :action => "logout" %>

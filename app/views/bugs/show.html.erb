@@ -1,0 +1,17 @@
+<p>
+  <b>Subject:</b>
+  <%=h @bug.subject %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @bug.description %>
+</p>
+
+<p>
+  <b>Reporter:</b>
+  <%=h @bug.user.company_name %>
+</p>
+
+
+<%= link_to 'Back', bugs_path %>

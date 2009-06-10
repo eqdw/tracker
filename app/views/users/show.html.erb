@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @user.name %>
+</p>
+
+<p>
+  <b>Company Name:</b>
+  <%=h @user.company_name %> 
+</p>
+
+<p>
+  <b>Admin?</b>
+  User is <%="not " unless @user.admin? %>admin
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @user.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

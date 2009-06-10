@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Bugs: <%= controller.action_name %></title>
+    <%= stylesheet_link_tag 'scaffold', 'tracker' %>
+  </head>
+  <body>
+
+    <p style="color: green"><%= flash[:notice] %></p>
+
+    <!-- Floating Login Form -->
+
+    <% if session[:user_id] -%>
+
+      <%= link_to "Log Out?", :controller => "admin",  :action => "logout"
+          %>
+
+
+    <% else -%>
+
+
+
+      <div class="tracker-form">
+        <% form_tag  :controller => "admin", :action => "login" do %>
+        <fieldset>
+          <legend>Please Log In</legend>
+
+          <div>
+            <label for="name">Name:</label>
+            <%= text_field_tag :name, params[:name] %>
+          </div>
+
+          <div>
+            <label for="password">Password:</label>
+            <%= password_field_tag :password, params[:password]%>
+          </div>
+
+          <div>
+            <%= submit_tag "Login" %>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
+
+
+
+    <%end%>
+
+    <!-- End Floating Login Form -->
+    
+
+
+    <%= yield  %>
+
+  </body>
+</html>

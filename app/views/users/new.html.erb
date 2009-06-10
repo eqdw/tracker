@@ -1,0 +1,37 @@
+<div class="tracker-form">
+
+  <% form_for(@user) do |f| %>
+    <%= f.error_messages %>
+
+    <fieldset>
+      <legend>Enter User Details</legend>
+      
+      <div>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :company_name %> <br />
+        <%= f.text_field :company_name %> 
+      </div>
+      <div>
+        <%= f.label :admin %><br />
+        <%= f.check_box :admin %>
+      </div>
+      <div>
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone %>
+      </div>
+      <div>
+        <%= f.label :user_password, 'Password' %>:
+        <%= f.password_field :password, :size => 40 %>
+      </div>
+      <div>
+        <%= f.label :user_password_confirmation, 'Confirm' %>
+        <%= f.password_field :password_confirmation, :size => 40 %>
+        <div>
+          <%= f.submit "Add User", :class => "submit" %>
+        </div>
+
+    </fieldset>
+  <% end %>
