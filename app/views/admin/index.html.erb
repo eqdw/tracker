@@ -1,5 +1,31 @@
-<h1>Welcome</h1>
+<h1>Index:</h1>
 
-We detect that you are <%= "not " unless session[:admin] %> an
-administrator!
-<%= link_to "Logout", :action => "logout" %>
+<% form_tag :action => "index" do %>
+ <fieldset>
+   <legend>Enter Search Criteria</legend>
+
+   <div>
+     <label for="Company">Company Name:</label>
+     <%= text_field_tag :company, params[:company] %>
+   </div>
+   
+   <div>
+     <label for="Username">Username:</label>
+     <%= text_field_tag :username, params[:username] %>
+   </div>
+
+   <div>
+     <%= submit_tag "Search" %>
+   </div>
+ </fieldset>
+ <%end%>
+</div>
+
+
+<% unless @bugs == nil %> 
+<h1> Listing bugs:</h1>
+<table>
+  <%= render(:partial => "shared/bug", :collection => @bugs) %>
+</table>
+<%end%>
+

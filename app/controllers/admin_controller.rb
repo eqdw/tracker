@@ -23,7 +23,10 @@ class AdminController < ApplicationController
   end
 
   def index
-    
+    @bugs = nil
+    if request.post?
+      @bugs = Bug.find_all_by_user_id(User.find_by_name(params[:username]))
+    end
   end
 
 end

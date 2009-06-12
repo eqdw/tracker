@@ -14,7 +14,7 @@ class BugsController < ApplicationController
   # GET /bugs/1.xml
   def show
     @bug = Bug.find(params[:id])
-    if(session[:user_id] == @bug.user_id)
+    if(session[:admin] || session[:user_id] == @bug.user_id)
       respond_to do |format|
         format.html # show.html.erb
       end

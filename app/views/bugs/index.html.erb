@@ -10,7 +10,7 @@
         <td class="list-description">
           
           <dl> 
-            <dt><%=h bug.user.name %></dt>
+            <dt><%=h bug.submitter %></dt>
             <dt><%=h bug.subject %></dt>
             <dd><%=h truncate(bug.description.gsub(/<.*?>/,''),
                               :length => 80) %> </dd>
