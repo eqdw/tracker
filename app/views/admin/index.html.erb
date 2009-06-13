@@ -21,11 +21,11 @@
  <%end%>
 </div>
 
-
-<% unless @bugs == nil %> 
-<h1> Listing bugs:</h1>
-<table>
-  <%= render(:partial => "shared/bug", :collection => @bugs) %>
-</table>
-<%end%>
-
+<div id="bug-list">
+  <% unless @bugs == nil %> 
+    <h1> Listing bugs:</h1>
+    <table>
+      <%= render(:partial => "shared/bug", :collection => @bugs) %>
+    </table>
+    <%end%>
+</div>

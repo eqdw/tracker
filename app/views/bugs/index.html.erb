@@ -1,29 +1,9 @@
 <div id="bug-list">
 
-  <h1>Listing bugs</h1>
+  <h1>Listing bugs:</h1>
 
   <table>
-    <% for bug in @bugs %>
-      
-      <tr class="<% cycle('list-line-odd', 'list-line-even') %>">
-
-        <td class="list-description">
-          
-          <dl> 
-            <dt><%=h bug.submitter %></dt>
-            <dt><%=h bug.subject %></dt>
-            <dd><%=h truncate(bug.description.gsub(/<.*?>/,''),
-                              :length => 80) %> </dd>
-            
-          </dl>
-        </td>
-
-        <td class="list-actions"> 
-          <%= link_to 'Show', bug %> <br />
-
-        </td>
-      </tr>
-    <% end %>
+    <%= render(:partial => "shared/bug", :collection => @bugs)%>
   </table>
 </div>
 

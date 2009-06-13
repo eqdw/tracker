@@ -14,4 +14,8 @@
 </p>
 
 
-<%= link_to 'Back', bugs_path %>
+<% if session[:admin] %>
+  <%= link_to 'Back', :controller => 'admin', :action => 'index' %>
+<% else %>
+  <%= link_to 'Back', bugs_path %>
+<% end %>
