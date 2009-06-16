@@ -6,20 +6,29 @@
 
    <div>
      <label for="Company">Company Name:</label>
-     <%= text_field_tag :company, params[:company] %>
+     <%= collection_select( :user, :company_name, User.all,
+     :company_name, :company_name, options = {:prompt => "-Select a Company"}) %>
    </div>
    
    <div>
      <label for="Username">Username:</label>
-     <%= text_field_tag :username, params[:username] %>
+     <%= collection_select( :user, :name, User.all, :name, :name,
+     options = {:prompt => "-Select a Username"}) %>
    </div>
 
+  <div>
+    <label for="Submitter">Submitted By:</label>
+    <%= collection_select( :bug, :submitter, Bug.all, :submitter,
+    :submitter, options = {:prompt => "-Select a Submitter"}) %>
+   </div>
    <div>
      <%= submit_tag "Search" %>
    </div>
  </fieldset>
  <%end%>
 </div>
+
+
 
 <div id="bug-list">
   <% unless @bugs == nil %> 
