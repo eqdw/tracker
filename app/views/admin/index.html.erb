@@ -31,7 +31,7 @@
 
 
 <div id="bug-list">
-  <% unless @bugs == nil %> 
+  <% if @bugs%> 
     <h1> Listing bugs:</h1>
     <table>
       <%= render(:partial => "shared/bug", :collection => @bugs) %>

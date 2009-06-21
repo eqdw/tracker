@@ -33,12 +33,14 @@ class AdminController < ApplicationController
       allowed_user_attrib = [:company_name, :name]
       allowed_bug_attrib  = [:submitter]
 
-      user_attrib = params[:user].reject{|k,v| ! allowed_user_attrib.include?(k)}
-      bug_attrib  = params[:bug].reject {|k,v| ! allowed_bug_attrib.include?(k)}
+      user_attrib = {:company_name => params[:user][:company_name],
+        :name => params[:user][:name]}.reject{|k,v| v.blank?}
 
+      bug_attrib  = {:submitter => params[:bug][:submitter]}.reject{|k,v| v.blank?}
+      
       if user_attrib
         user = User.find(:first, :conditions => user_attrib)
-        bug_attrib[:user_id] = user #.merge!({:user_id => user})
+        bug_attrib.merge!({:user_id => user})
       end
 
       @bugs = Bug.find(:all, :conditions => bug_attrib)

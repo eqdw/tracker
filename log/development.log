@@ -16428,3 +16428,980 @@ Rendered shared/_bug (0.9ms)
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
 Rendered shared/_bug (0.8ms)
 Completed in 24ms (View: 13, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:04:07) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.8ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 77ms (View: 66, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:04:08) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+
+
+NameError (undefined local variable or method `user_attrib' for #<AdminController:0x261bd70>):
+    /app/controllers/admin_controller.rb:39:in `index'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:103:in `handle_dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:74:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:60:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/webrick.rb:66
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (19.0ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.7ms)
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:04:51) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 19ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:04:52) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.1ms)
+Completed in 26ms (View: 16, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:04:56) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"Koopa2"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.9ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.2ms)
+Completed in 26ms (View: 16, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:05:20) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:05:22) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.3ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.7ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.2ms)
+Completed in 27ms (View: 15, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:05:45) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 20ms (View: 13, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:05:47) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.2ms)
+Completed in 28ms (View: 17, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:05:59) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.9ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.7ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.1ms)
+Completed in 26ms (View: 15, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:06:02) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"You're Both Wrong, It's A Sphere"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.2ms)
+Completed in 25ms (View: 16, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:06:12) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 19ms (View: 10, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:06:13) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.0ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.3ms)
+Completed in 27ms (View: 16, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:06:14) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"Koopa2"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.2ms)
+Completed in 28ms (View: 16, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:06:17) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"You're Both Wrong, It's A Sphere"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.9ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.2ms)
+Completed in 81ms (View: 71, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:07:23) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 19ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:07:24) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+
+
+NoMethodError (undefined method `%' for {:submitter=>""}:Hash):
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2188:in `sanitize_sql_array'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2079:in `sanitize_sql'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1441:in `merge_conditions'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1439:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1439:in `merge_conditions'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1742:in `add_conditions!'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1629:in `construct_finder_sql'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1490:in `find_every'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:589:in `find'
+    /app/controllers/admin_controller.rb:44:in `index'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:103:in `handle_dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:74:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:60:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/webrick.rb:66
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (23.0ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.7ms)
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:07:30) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"Koopa2"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+
+
+NoMethodError (undefined method `%' for {:submitter=>"Koopa2"}:Hash):
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2188:in `sanitize_sql_array'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2079:in `sanitize_sql'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1441:in `merge_conditions'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1439:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1439:in `merge_conditions'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1742:in `add_conditions!'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1629:in `construct_finder_sql'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1490:in `find_every'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:589:in `find'
+    /app/controllers/admin_controller.rb:44:in `index'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:103:in `handle_dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:74:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/webrick_server.rb:60:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/webrick.rb:66
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (22.7ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.6ms)
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:07:52) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:07:54) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mBug Load (0.2ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = '') [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 20ms (View: 8, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:07:56) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"The World Is Square"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mBug Load (0.3ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = 'The World Is Square') [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.4ms)
+Completed in 22ms (View: 12, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:09:14) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.9ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:09:16) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = '' AND "users"."company_name" = '') LIMIT 1[0m
+  [4;36;1mBug Load (0.1ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = '' AND "bugs"."user_id" IS NULL) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.8ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:09:19) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>"TestCorp Ltd."}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = '' AND "users"."company_name" = 'TestCorp Ltd.') LIMIT 1[0m
+  [4;36;1mBug Load (0.1ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = '' AND "bugs"."user_id" IS NULL) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.8ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:09:21) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestOne", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'userTestOne' AND "users"."company_name" = '') LIMIT 1[0m
+  [4;36;1mBug Load (0.1ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = '' AND "bugs"."user_id" IS NULL) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.8ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 19ms (View: 10, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:09:23) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"Koopa2"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = '' AND "users"."company_name" = '') LIMIT 1[0m
+  [4;36;1mBug Load (0.1ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = 'Koopa2' AND "bugs"."user_id" IS NULL) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 20ms (View: 9, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:09:35) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestOne", "company_name"=>"TestCorp Ltd."}, "bug"=>{"submitter"=>"Koopa1"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'userTestOne' AND "users"."company_name" = 'TestCorp Ltd.') LIMIT 1[0m
+  [4;36;1mBug Load (0.3ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = 'Koopa1' AND "bugs"."user_id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.4ms)
+Completed in 23ms (View: 10, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:11:52) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:11:54) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = '' AND "users"."company_name" = '') LIMIT 1[0m
+  [4;35;1mBug Load (0.1ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = '' AND "bugs"."user_id" IS NULL) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 21ms (View: 10, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:11:57) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>"TestCorp Ltd."}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = '' AND "users"."company_name" = 'TestCorp Ltd.') LIMIT 1[0m
+  [4;35;1mBug Load (0.1ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = '' AND "bugs"."user_id" IS NULL) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 76ms (View: 63, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:12:49) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.8ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:12:50) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mBug Load (0.4ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.7ms)
+Completed in 24ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:12:53) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestOne", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'userTestOne') LIMIT 1[0m
+  [4;36;1mBug Load (0.4ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.7ms)
+Completed in 23ms (View: 11, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:12:57) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"adminTest", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'adminTest') LIMIT 1[0m
+  [4;35;1mBug Load (0.3ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 3) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (1.9ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.6ms)
+Completed in 23ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:12:59) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestTwo", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'userTestTwo') LIMIT 1[0m
+  [4;36;1mBug Load (0.4ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 2) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.0ms)
+Completed in 25ms (View: 12, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:03) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestOne", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'userTestOne') LIMIT 1[0m
+  [4;35;1mBug Load (0.4ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+Completed in 23ms (View: 12, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:05) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>"TestCorp Ltd."}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."company_name" = 'TestCorp Ltd.') LIMIT 1[0m
+  [4;36;1mBug Load (0.5ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+Completed in 26ms (View: 12, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:07) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>"Testudinata Inc."}, "bug"=>{"submitter"=>""}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."company_name" = 'Testudinata Inc.') LIMIT 1[0m
+  [4;35;1mBug Load (0.5ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 2) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.4ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:10) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>"Admin Enterprises"}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."company_name" = 'Admin Enterprises') LIMIT 1[0m
+  [4;36;1mBug Load (1.4ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 3) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.8ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered shared/_bug (1.7ms)
+Completed in 24ms (View: 11, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:12) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"Koopa1"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mBug Load (0.2ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = 'Koopa1' AND "bugs"."user_id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.3ms)
+Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:15) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"", "company_name"=>""}, "bug"=>{"submitter"=>"Koopa2"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mBug Load (0.4ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = 'Koopa2' AND "bugs"."user_id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.8ms)
+Completed in 79ms (View: 11, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:19) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"adminTest", "company_name"=>"TestCorp Ltd."}, "bug"=>{"submitter"=>"You're Both Wrong, It's A Sphere"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'adminTest' AND "users"."company_name" = 'TestCorp Ltd.') LIMIT 1[0m
+  [4;36;1mBug Load (0.1ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = 'You''re Both Wrong, It''s A Sphere' AND "bugs"."user_id" IS NULL) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:28) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestOne", "company_name"=>"TestCorp Ltd."}, "bug"=>{"submitter"=>"Koopa2"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'userTestOne' AND "users"."company_name" = 'TestCorp Ltd.') LIMIT 1[0m
+  [4;36;1mBug Load (0.3ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = 'Koopa2' AND "bugs"."user_id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (1.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_bug (0.9ms)
+Completed in 25ms (View: 12, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:33) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestTwo", "company_name"=>"Testudinata Inc."}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'userTestTwo' AND "users"."company_name" = 'Testudinata Inc.') LIMIT 1[0m
+  [4;36;1mBug Load (0.4ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 2) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.8ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+Completed in 25ms (View: 11, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:13:37) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestTwo", "company_name"=>""}, "bug"=>{"submitter"=>"The World Is A Cube, Dumbass"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'userTestTwo') LIMIT 1[0m
+  [4;35;1mBug Load (0.3ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."submitter" = 'The World Is A Cube, Dumbass' AND "bugs"."user_id" = 2) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mBug Load (0.7ms)[0m   [0;1mSELECT * FROM "bugs" [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.5ms)
+Completed in 24ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing BugsController#show (for 127.0.0.1 at 2009-06-21 13:13:44) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"id"=>"5"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mBug Load (0.2ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs"."id" = 5) [0m
+Rendering template within layouts/bugs
+Rendering bugs/show
+Completed in 27ms (View: 17, DB: 1) | 200 OK [http://localhost/bugs/5]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:14:27) [GET]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.8ms)[0m   [0mSELECT * FROM "bugs" [0m
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2009-06-21 13:14:29) [POST]
+  Session ID: 9435cd5796c9e499c1023156ed749f69
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"a394d6e053da4eac17b976ac1ad5206c679fec2d", "user"=>{"name"=>"userTestTwo", "company_name"=>""}, "bug"=>{"submitter"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'userTestTwo') LIMIT 1[0m
+  [4;36;1mBug Load (0.4ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs"."user_id" = 2) [0m
+Rendering template within layouts/bugs
+Rendering admin/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mBug Load (0.7ms)[0m   [0mSELECT * FROM "bugs" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (1.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_bug (0.9ms)
+Completed in 24ms (View: 11, DB: 1) | 200 OK [http://localhost/admin]
