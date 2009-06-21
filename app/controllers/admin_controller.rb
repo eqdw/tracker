@@ -22,62 +22,86 @@ class AdminController < ApplicationController
     redirect_to_index :notice => "Logged Out Successfully"
   end
 
+
+
+# Thanks, burke!
   def index
-    @bugs = nil
     if request.post?
 
-      if( params[:user][:company_name].blank? &&
-          params[:user][:name].blank? &&
-          params[:bug][:submitter].blank? )
+      mappings = Hash.new{|k,v|v}
 
-        @bugs = Bug.find(:all)
+      allowed_user_attrib = [:company_name, :name]
+      allowed_bug_attrib  = [:submitter]
 
-      elsif( params[:user][:name].blank? &&
-             params[:bug][:submitter].blank? )
-        @bugs = Bug.find_all_by_user_id(
-                   User.find_by_company_name(params[:user][:company_name]))
+      user_attrib = params[:user].reject{|k,v| ! allowed_user_attrib.include?(k)}
+      bug_attrib  = params[:bug].reject {|k,v| ! allowed_bug_attrib.include?(k)}
 
-      elsif( params[:user][:company_name].blank? &&
-             params[:bug][:submitter].blank? )
-
-        @bugs = Bug.find_all_by_user_id(
-                  User.find_by_name(params[:user][:name]))
-
-      elsif( params[:user][:company_name].blank? &&
-             params[:user][:name].blank? )
-
-        @bugs = Bug.find_all_by_submitter(params[:bug][:submitter])
-
-      elsif (params[:user][:company_name].blank? )
-
-        @bugs = Bug.find(:all,
-                   :conditions => ["user_id = ? and submitter = ?",
-                                   User.find_by_name(params[:user][:name]),
-                                   params[:bug][:submitter]])
-
-      elsif (params[:user][:name].blank?)
-
-        @bugs = Bug.find(:all,
-                   :conditions => ["user_id = ? and submitter = ?",
-                                   User.find_by_company_name(params[:user][:company_name]),
-                                   params[:bug][:submitter]])
-
-      elsif (params[:bug][:submitter].blank?)
-
-        @bugs = Bug.find_all_by_user_id(
-                   User.find_by_company_name_and_name(
-                                            params[:user][:company_name],
-                                            params[:user][:name]))
-      else #if all are selected
-      
-        @bugs = Bug.find(:all,
-                   :conditions => ["user_id = ? and submitter = ?",
-                     User.find_by_company_name_and_name(
-                                         params[:user][:company_name],
-                                         params[:user][:name]),
-                     params[:bug][:submitter]])
+      if user_attrib
+        user = User.find(:first, :conditions => user_attrib)
+        bug_attrib[:user_id] = user #.merge!({:user_id => user})
       end
+
+      @bugs = Bug.find(:all, :conditions => bug_attrib)
     end
   end
+
+  
+#   def index
+#     @bugs = nil
+#     if request.post?
+
+#       if( params[:user][:company_name].blank? &&
+#           params[:user][:name].blank? &&
+#           params[:bug][:submitter].blank? )
+
+#         @bugs = Bug.find(:all)
+
+#       elsif( params[:user][:name].blank? &&
+#              params[:bug][:submitter].blank? )
+#         @bugs = Bug.find_all_by_user_id(
+#                    User.find_by_company_name(params[:user][:company_name]))
+
+#       elsif( params[:user][:company_name].blank? &&
+#              params[:bug][:submitter].blank? )
+
+#         @bugs = Bug.find_all_by_user_id(
+#                   User.find_by_name(params[:user][:name]))
+
+#       elsif( params[:user][:company_name].blank? &&
+#              params[:user][:name].blank? )
+
+#         @bugs = Bug.find_all_by_submitter(params[:bug][:submitter])
+
+#       elsif (params[:user][:company_name].blank? )
+
+#         @bugs = Bug.find(:all,
+#                    :conditions => ["user_id = ? and submitter = ?",
+#                                    User.find_by_name(params[:user][:name]),
+#                                    params[:bug][:submitter]])
+
+#       elsif (params[:user][:name].blank?)
+
+#         @bugs = Bug.find(:all,
+#                    :conditions => ["user_id = ? and submitter = ?",
+#                                    User.find_by_company_name(params[:user][:company_name]),
+#                                    params[:bug][:submitter]])
+
+#       elsif (params[:bug][:submitter].blank?)
+
+#         @bugs = Bug.find_all_by_user_id(
+#                    User.find_by_company_name_and_name(
+#                                             params[:user][:company_name],
+#                                             params[:user][:name]))
+#       else #if all are selected
+      
+#         @bugs = Bug.find(:all,
+#                    :conditions => ["user_id = ? and submitter = ?",
+#                      User.find_by_company_name_and_name(
+#                                          params[:user][:company_name],
+#                                          params[:user][:name]),
+#                      params[:bug][:submitter]])
+#       end
+#     end
+#   end
 
 end
