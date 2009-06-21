@@ -30,9 +30,6 @@ class AdminController < ApplicationController
 
       mappings = Hash.new{|k,v|v}
 
-      allowed_user_attrib = [:company_name, :name]
-      allowed_bug_attrib  = [:submitter]
-
       user_attrib = {:company_name => params[:user][:company_name],
         :name => params[:user][:name]}.reject{|k,v| v.blank?}
 
