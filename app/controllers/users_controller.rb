@@ -25,7 +25,8 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   def new
     @user = User.new
-
+    @companies = Company.find(:all)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user }
@@ -40,10 +41,12 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.xml
   def create
-    @user = User.new(params[:user])
+    @company = Company.find(params[:user][:company_id])
+    @user = @company.users.create(params[:user])
+    
 
     respond_to do |format|
-      if @user.save
+      unless @user.errors.any?
         flash[:notice] = "User #{@user.name} was successfully created."
         format.html { redirect_to(:action=>'index') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }

@@ -5,17 +5,12 @@
 
 <p>
   <b>Company Name:</b>
-  <%=h @user.company_name %> 
+  <%=h @user.company.name %> 
 </p>
 
 <p>
   <b>Admin?</b>
   User is <%="not " unless @user.admin? %>admin
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%=h @user.phone %>
 </p>
 
 

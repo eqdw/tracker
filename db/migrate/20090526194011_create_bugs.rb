@@ -1,3 +1,5 @@
+#bug belongs_to :user
+
 class CreateBugs < ActiveRecord::Migration
   def self.up
     create_table :bugs do |t|

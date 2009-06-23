@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090612005224) do
+ActiveRecord::Schema.define(:version => 20090623185027) do
 
   create_table "bugs", :force => true do |t|
     t.string   "subject"
@@ -17,7 +17,12 @@ ActiveRecord::Schema.define(:version => 20090612005224) do
     t.integer  "user_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "submitter"
+  end
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", :force => true do |t|
@@ -35,10 +40,9 @@ ActiveRecord::Schema.define(:version => 20090612005224) do
     t.string   "hashed_password"
     t.string   "salt"
     t.boolean  "admin"
-    t.string   "phone"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "company_name"
   end
 
 end

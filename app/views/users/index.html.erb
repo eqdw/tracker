@@ -5,15 +5,17 @@
     <th>Name</th>
     <th>Company Name</th>
     <th>Userclass</th>
-    <th>Phone</th>
   </tr>
 
   <% for user in @users %>
     <tr>
       <td><%=h user.name %></td>
-      <td><%=h user.company_name %> </td>
+      <% if user.company %>
+        <td><%=h user.company.name %> </td>
+      <% else %>
+        <td> COMPANY IS NIL FOR SOME REASON </td>
+      <% end %>
       <td><%="User is Admin" if user.admin? %></td>
-      <td><%=h user.phone %></td>
       <td><%= link_to 'Show', user %></td>
       <td><%= link_to 'Edit', edit_user_path(user) %></td>
       <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,3 +1,6 @@
+#user belongs_to :company
+#user has_many :bugs
+
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
@@ -5,7 +8,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :hashed_password
       t.string :salt
       t.boolean :admin
-      t.string :phone
+
+      t.integer :company_id, :options => "CONSTRAINT fk_user_companies REFERENCES companies(id)"
 
       t.timestamps
     end

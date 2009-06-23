@@ -8,16 +8,12 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :company_name %> <br />
-    <%= f.text_field :company_name %> 
+    <%= f.label :company %> </br>
+    <%= f.collection_select('company_id', Company.all, :id, :name) %>
   </p>
   <p>
     <%= f.label :admin %><br />
     <%= f.check_box :admin %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
   </p>
   <p>
     <%= f.submit "Update" %>

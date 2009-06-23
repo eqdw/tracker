@@ -6,21 +6,16 @@
 
    <div>
      <label for="Company">Company Name:</label>
-     <%= collection_select( :user, :company_name, User.all,
-     :company_name, :company_name, options = {:prompt => "-Select a Company"}) %>
+     <%= collection_select( :company, :id, @companies,
+     :id, :name, options = {:prompt => "-Select a Company"}) %>
    </div>
    
    <div>
      <label for="Username">Username:</label>
-     <%= collection_select( :user, :name, User.all, :name, :name,
+     <%= collection_select( :user, :id, @users, :id, :name,
      options = {:prompt => "-Select a Username"}) %>
    </div>
 
-  <div>
-    <label for="Submitter">Submitted By:</label>
-    <%= collection_select( :bug, :submitter, Bug.all, :submitter,
-    :submitter, options = {:prompt => "-Select a Submitter"}) %>
-   </div>
    <div>
      <%= submit_tag "Search" %>
    </div>
@@ -34,7 +29,7 @@
   <% if @bugs%> 
     <h1> Listing bugs:</h1>
     <table>
-      <%= render(:partial => "shared/bug", :collection => @bugs) %>
+      <%= render(:partial => @bugs) %>
     </table>
     <%end%>
 </div>
