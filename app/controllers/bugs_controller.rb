@@ -49,6 +49,30 @@ class BugsController < ApplicationController
     end
   end
 
+
+  # PUT /bugs/1
+  # PUT /bugs/1.xml
+  def update
+    @bug = Bug.find(params[:id])
+
+    
+    respond_to do |format|
+      if @bug.update_attributes(params[:bug])
+        notice = "Bug marked as solved" if params[:bug][:solved] == "1"
+        format.html { redirect_to_index :controller => "admin", :notice => notice }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @bug.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+
+
+
+
+  
   protected
   def authorize_admin
   end

@@ -17,6 +17,12 @@
    </div>
 
    <div>
+     <label for="Solved?">Display solved bugs? </label>
+     <%= select(:bug, :solved, %w{All No Yes})%>
+   </div>
+
+
+   <div>
      <%= submit_tag "Search" %>
    </div>
  </fieldset>

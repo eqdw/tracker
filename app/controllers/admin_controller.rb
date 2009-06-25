@@ -23,10 +23,12 @@ class AdminController < ApplicationController
   end
 
   def index
+
+    #Set up selection boxen choices
     @companies = Company.find(:all)
     @users = User.find(:all)
+    
     if request.post?
-
       if( ! params[:user][:id].blank?)
         @bugs = Bug.find_all_by_user_id(params[:user][:id])
       elsif ( ! params[:company][:id].blank?)
@@ -36,6 +38,12 @@ class AdminController < ApplicationController
         @bugs = Bug.find(:all)
       end
       
+      unless( params[:bug][:solved] == "All")
+        cond = (params[:bug][:solved] == "No" ? true : false)
+        @bugs.reject!{ |b| b.solved == cond}
+      end
+    else
+      @bugs = Bug.find(:all)
     end
   end
 

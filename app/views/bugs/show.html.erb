@@ -16,6 +16,13 @@
 
 <% if session[:admin] %>
   <%= link_to 'Back', :controller => 'admin', :action => 'index' %>
+  
+  <% unless @bug.solved %>
+    <% form_for(@bug) do |f| %>
+      <%= f.check_box :solved %>
+      <%= f.submit "Mark as Solved" %>
+    <% end %>
+  <% end %>
 <% else %>
   <%= link_to 'Back', bugs_path %>
 <% end %>

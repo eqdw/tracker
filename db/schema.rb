@@ -9,14 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090623185027) do
+ActiveRecord::Schema.define(:version => 20090625180526) do
 
   create_table "bugs", :force => true do |t|
     t.string   "subject"
     t.text     "description"
-    t.integer  "user_id",     :null => false
+    t.integer  "user_id",                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "solved",      :default => false
   end
 
   create_table "companies", :force => true do |t|
