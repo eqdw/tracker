@@ -21,6 +21,10 @@
      <%= select(:bug, :solved, %w{All No Yes})%>
    </div>
 
+   <div>
+     <label for="Days"> Submitted in the last _ days </label>
+     <%= text_field_tag :days, params[:days] %>
+   </div>
 
    <div>
      <%= submit_tag "Search" %>

@@ -25,29 +25,30 @@ class AdminController < ApplicationController
   def index
 
     #Set up selection boxen choices
-    @companies = Company.find(:all)
-    @users = User.find(:all)
+    @companies = Company.all
+    @users = User.all
+
+
+    params[:days] = 0 if params[:days].blank?
+    params[:days] = params[:days].to_i if params[:days]
     
     if request.post?
-      if( ! params[:user][:id].blank?)
-        @bugs = Bug.find_all_by_user_id(params[:user][:id])
-      elsif ( ! params[:company][:id].blank?)
-        @bugs = Bug.find_all_by_user_id(
-                   User.find_all_by_company_id(params[:company][:id]))
-      else
-        @bugs = Bug.find(:all)
-      end
-      
-      unless( params[:bug][:solved] == "All")
-        cond = (params[:bug][:solved] == "No" ? true : false)
-        @bugs.reject!{ |b| b.solved == cond}
-      end
-    else
-      @bugs = Bug.find(:all)
-    end
-  end
 
-  
+      conditions = {}
+      
+      conditions[:user_id] = params[:user][:id] unless params[:user][:id].blank?
+
+      conditions[:"users.company_id"] =
+            params[:company][:id] unless params[:company][:id].blank?
+
+    @bugs = Bug.solved( params[:bug][:solved]).last_n_days(
+              params[:days]).find(
+                    :all, :joins => :user, :conditions => conditions)
+    else
+      @bugs = Bug.all
+    end
+
+  end
 
 
 ########################################################################

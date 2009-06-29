@@ -13,6 +13,11 @@
   <%=h @bug.user.name %>
 </p>
 
+<% if @bug.solved %>
+  <p>
+    <b> This bug has been solved </b>
+  </p>
+<% end %>
 
 <% if session[:admin] %>
   <%= link_to 'Back', :controller => 'admin', :action => 'index' %>
