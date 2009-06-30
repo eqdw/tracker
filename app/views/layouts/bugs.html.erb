@@ -52,6 +52,21 @@
     <!-- End Floating Login Form -->
     
 
+    <!-- Begin Admin Links -->
+    
+    <% if session[:admin] %>
+      
+      
+      <%= link_to 'Manage Users', users_path %>
+      <%= link_to 'Manage Companies', companies_path %>
+      <%= link_to 'File Test Bugs', bugs_path %>
+      <%= link_to 'Search Bugs', :controller => 'admin', :action =>
+          'index' %>
+     
+    <% end %>
+
+    <!-- End Admin Links -->
+
 
     <%= yield  %>
 
