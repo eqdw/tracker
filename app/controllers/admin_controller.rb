@@ -28,9 +28,8 @@ class AdminController < ApplicationController
     @companies = Company.all
     @users = User.all
 
+    params[:days] = params[:days].to_i
 
-    params[:days] = 0 if params[:days].blank?
-    params[:days] = params[:days].to_i if params[:days]
     
     if request.post?
 
@@ -41,9 +40,12 @@ class AdminController < ApplicationController
       conditions[:"users.company_id"] =
             params[:company][:id] unless params[:company][:id].blank?
 
-    @bugs = Bug.solved( params[:bug][:solved]).last_n_days(
-              params[:days]).find(
-                    :all, :joins => :user, :conditions => conditions)
+    unless (params[:bug][:solved] == "All")
+      conditions[:solved] = params[:bug][:solved] == "Yes" ? true : false
+     end
+
+    @bugs = Bug.last_n_days(params[:days]).find(
+                        :all, :joins => :user, :conditions => conditions)
     else
       @bugs = Bug.all
     end

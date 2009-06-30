@@ -1,17 +1,11 @@
 class Bug < ActiveRecord::Base
   belongs_to :user
 
-  named_scope :solved, lambda{|str|
-    if str == "Yes" 
-      {:conditions => 'solved = true'}
-    else # str == "No"
-      {:conditions => 'solved = false'}
-    end
-  }
-
-  named_scope :last_n_days, lambda{|days|
-    unless days == 0
-      {:conditions => ['created_on < ?', days]}
+  named_scope :last_n_days, lambda{|n|
+    if n == 0
+      {:conditions => ['bugs.created_at < ?', Date.tomorrow] }
+    else
+      {:conditions => ['bugs.created_at > ?', Date.today - n.days]}
     end
   }
 
