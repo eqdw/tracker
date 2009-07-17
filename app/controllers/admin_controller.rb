@@ -45,7 +45,8 @@ class AdminController < ApplicationController
      end
 
     @bugs = Bug.last_n_days(params[:days]).find(
-                        :all, :joins => :user, :conditions => conditions)
+                        :all, :joins => :user, :conditions => conditions,
+                                                :order => 'created_at DESC')
     else
       @bugs = Bug.all
     end

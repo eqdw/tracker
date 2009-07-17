@@ -1,0 +1,81 @@
+/***************************************/
+/* CSS for views/layouts/bugs.html.erb */
+/***************************************/
+
+h1 {
+    font: 150% sans-serif;
+    color: #226;
+    border-bottom: 3px dotted #77d;
+    margin-left: 13em;
+    margin-right: 13em;
+}
+#banner { 
+    background: #9c9; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    border: 2px solid; 
+    padding-right: 5px;
+    font: small-caps 18px/18px "Times New Roman", serif; 
+    color: #282; 
+    text-align: center; 
+    height: 170px;
+} 
+#banner h1{
+    margin-left: 13em;
+    margin-right: 13em;
+    border-bottom: 0px;
+}
+
+#banner a{
+    color: #282;
+}
+
+
+#login {
+    margin: 0px;
+    text-align: right;
+    float: right;
+    padding-bottom: 5px;
+}
+
+#main {
+    text-align: center;
+    background: white;
+}
+
+
+    
+/*********************************/
+/*END views/layouts/bugs.html.erb*/
+/*********************************/
+
+/***********************/
+/*CSS for views/bugs/* */
+/***********************/
+#bug-list table{
+    margin-left: 13em;
+}
+#bug-list tr td{
+    padding: 5px;
+    vertical-align: top;
+}
+tr.bug-header td{
+    width: 33%;
+}
+tr.bug-info td{
+    width: 33%;
+}
+
+td.bug-desc{
+    color: darkred;
+}
+/**************************/
+/*CSS for views/bugs/show */
+/**************************/
+
+p.description{
+    font: 18px/24px "Times New Roman";
+    border: 3px solid black;
+    margin-left: 17.5em;
+    margin-right: 17.5em;
+}

@@ -5,70 +5,81 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>Bugs: <%= controller.action_name %></title>
-    <%= stylesheet_link_tag 'scaffold', 'tracker' %>
+    <%= stylesheet_link_tag 'tracker', :media => "all" %>
   </head>
   <body>
 
-    <p style="color: green"><%= flash[:notice] %></p>
 
-    <!-- Floating Login Form -->
-
-    <% if session[:user_id] -%>
-
-      <%= link_to "Log Out?", :controller => "admin",  :action => "logout"
-          %>
-
-
-    <% else -%>
-
-
-
-      <div class="tracker-form">
-        <% form_tag  :controller => "admin", :action => "login" do %>
-        <fieldset>
-          <legend>Please Log In</legend>
-
-          <div>
-            <label for="name">Name:</label>
-            <%= text_field_tag :name, params[:name] %>
-          </div>
-
-          <div>
-            <label for="password">Password:</label>
-            <%= password_field_tag :password, params[:password]%>
-          </div>
-
-          <div>
-            <%= submit_tag "Login" %>
-          </div>
-        </fieldset>
-      <% end %>
-    </div>
-
-
-
-    <%end%>
-
-    <!-- End Floating Login Form -->
-    
-
-    <!-- Begin Admin Links -->
-    
-    <% if session[:admin] %>
+    <div id="banner">
       
-      
-      <%= link_to 'Manage Users', users_path %>
-      <%= link_to 'Manage Companies', companies_path %>
-      <%= link_to 'File Test Bugs', bugs_path %>
-      <%= link_to 'Search Bugs', :controller => 'admin', :action =>
-          'index' %>
+      <h1> Welcome to Victory Bug Tracker </h1>
      
-    <% end %>
+      
+      <!-- Floating Login Form -->
+      <div id="login">
+        
+        <% if session[:user_id]%>
+          
+          <%= link_to "Log Out?", :controller => "admin",  :action => "logout"
+              %>
+          
+          
+        <% else %>
+          
+          <div class="tracker-form">
+            <% form_tag  :controller => "admin", :action => "login" do %>
+              <fieldset>
+                <legend>Please Log In</legend>
+              
+                <div>
+                  <label for="name">Name:</label>
+                  <%= text_field_tag :name, params[:name] %>
+                </div>
+              
+                <div>
+                  <label for="password">Password:</label>
+                  <%= password_field_tag :password, params[:password]%>
+                </div>
+              
+                <div>
+                  <%= submit_tag "Login" %>
+                </div>
+              </fieldset>
+              
+            <% end %>
+          </div>
+        
+        <%end%>
+      </div>
+      <!-- End Floating Login Form -->
+      
+      
+      <!--- Error Messages -->
+        <p style="color: green"><%= flash[:notice] %></p>
+      <!--- End Error Messages -->
 
-    <!-- End Admin Links -->
+      <!-- Begin Admin Links -->
+      
+      <% if session[:admin] %>
+        
+        
+        <%= link_to 'Manage Users', users_path %>
+        <%= link_to 'Manage Companies', companies_path %>
+        <%= link_to 'File Test Bugs', bugs_path %>
+        <%= link_to 'Search Bugs', :controller => 'admin', :action =>
+              'index' %>
+        
+      <% end %>
+      
+      <!-- End Admin Links -->
+      
 
-
-    <%= yield  %>
+    </div> 
+    
+    <div id="main">
+      <%= yield  %>
+    </div>
+    
 
   </body>
 </html>

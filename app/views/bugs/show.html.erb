@@ -1,14 +1,16 @@
-<p>
-  <b>Subject:</b>
-  <%=h @bug.subject %>
+<p class="subject">
+  
+  <h1>
+    <b>Subject:</b>
+    <%=h @bug.subject %>
+  </h1>
 </p>
 
-<p>
-  <b>Description:</b>
+<p class="description">
   <%=h @bug.description %>
 </p>
 
-<p>
+<p class="submitter">
   <b>Submitter:</b>
   <%=h @bug.user.name %>
 </p>
